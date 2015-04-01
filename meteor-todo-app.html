@@ -32,7 +32,11 @@
 </template>
 
 <template name="todo">
-    <li>{{text}}</li>
+    <li>{{text}}
+        {{#if isOpen}}
+            <span class="todo-item-control close-todo">C</span>
+            <span class="todo-item-control do-todo">D</span>
+        {{/if}}</li>
 </template>
 
 <template name="createTodo">

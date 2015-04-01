@@ -34,6 +34,26 @@ if (Meteor.isClient) {
         }
     });
 
+    // Todo helpers
+    Template.todo.helpers({
+        // Return true if the todo is open
+        isOpen: function () {
+            return this.status == 'Open';
+        }
+    });
+
+    // Todo events
+    Template.todo.events({
+        // Close a todo
+        'click .todo-item-control.close-todo': function () {
+            Todos.update(this._id, { $set: { status: 'Closed' } });
+        },
+        // Do a todo
+        'click .todo-item-control.do-todo': function () {
+            Todos.update(this._id, { $set: { status: 'Done' } });
+        }
+    });
+
     // Events in createTodo
     Template.createTodo.events({
         // create new todo
