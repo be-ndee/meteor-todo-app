@@ -6,8 +6,8 @@ A simple tutorial/example todo app with the JS framework Meteor
 
 run server
 
-```meteor run```
+```$ meteor run```
 
 compile scss to css
 
-```make watch```
+```$ make watch```
