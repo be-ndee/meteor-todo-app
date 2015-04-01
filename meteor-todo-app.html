@@ -5,16 +5,20 @@
 <body>
     <div class="tab-container">
         <div class="tab-control">
-            <span class="tab-rider">Done</span><span class="tab-rider">Open</span><span class="tab-rider">Closed</span>
+            {{#each tabs}}{{> tabRider}}{{/each}}
         </div>
-        <div class="tab tab-closed">
-            ## List with open TODO's ##
-        </div>
-        <div class="tab tab-active">
-            ## List with done TODO's ##
-        </div>
-        <div class="tab tab-closed">
-            ## List with closed TODO's ##
-        </div>
+            {{#each tabs}}
+                {{> tabContainer}}
+            {{/each}}
     </div>
 </body>
+
+<template name="tabRider">
+    <span class="tab-rider tab-rider-{{#if opened}}selected{{/if}}">{{title}}</span>
+</template>
+
+<template name="tabContainer">
+    <div class="tab tab-{{#if opened}}opened{{else}}closed{{/if}}">
+        List with {{title}} TODO's
+    </div>
+</template>
