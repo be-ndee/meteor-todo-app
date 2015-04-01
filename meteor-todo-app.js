@@ -10,6 +10,7 @@ if (Meteor.isClient) {
 
     // Body helpers
     Template.body.helpers({
+        // available tabs
         tabs: function () {
             return Session.get('tabs');
         }
@@ -27,8 +28,20 @@ if (Meteor.isClient) {
 
     // Events on tabRider
     Template.tabRider.events({
+        // select a tab
         'click': function () {
             Session.set('selectedTab', this.title);
+        }
+    });
+
+    // Events in createTodo
+    Template.createTodo.events({
+        // create new todo
+        'submit form': function (event) {
+            var todoText = event.target.text.value;
+            Todos.insert({ text: todoText, status: 'Open'});
+            event.target.text.value = '';
+            return false;
         }
     });
 }

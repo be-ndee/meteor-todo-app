@@ -10,6 +10,7 @@
         {{#each tabs}}
             {{> tabContainer}}
         {{/each}}
+        {{> createTodo}}
     </div>
 </body>
 
@@ -32,4 +33,10 @@
 
 <template name="todo">
     <li>{{text}}</li>
+</template>
+
+<template name="createTodo">
+    <form>
+        <input type="text" name="text" placeholder="Create new todo" />
+    </form>
 </template>
