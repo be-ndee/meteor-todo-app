@@ -1,3 +1,5 @@
+Todos = new Mongo.Collection('todos');
+
 if (Meteor.isClient) {
     Session.set('tabs', [
         { title: 'Done' },
@@ -13,9 +15,14 @@ if (Meteor.isClient) {
         }
     });
 
-    // Handler to check if tab is active
+    // Check if the tab is active
     Handlebars.registerHelper('isActive', function (title) {
         return Session.equals('selectedTab', title);
+    });
+
+    // Get todos by their status
+    Handlebars.registerHelper('getTodos', function (status) {
+        return Todos.find({ status: status });
     });
 
     // Events on tabRider

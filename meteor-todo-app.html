@@ -20,5 +20,16 @@
 <template name="tabContainer">
     <div class="tab tab{{#if isActive title}}-active{{/if}}">
         List with {{title}} TODO's
+        <ul>
+            {{#each getTodos title}}
+                {{> todo}}
+            {{else}}
+             No todos ...
+            {{/each}}
+        </ul>
     </div>
+</template>
+
+<template name="todo">
+    <li>{{text}}</li>
 </template>
