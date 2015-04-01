@@ -58,6 +58,17 @@ $tab-counter: 3;
                 margin: 3px 0px 3px 0px;
                 background-color: #f0f0f0;
                 list-style: none;
+                span.todo-item-control {
+                    float: right;
+                    cursor: pointer;
+                    &:hover {
+                        color: #d8d8d8;
+                    }
+                    &.close-todo {
+                    }
+                    &.do-todo {
+                    }
+                }
             }
         }
     }
