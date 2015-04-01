@@ -6,6 +6,7 @@ $tab-control-height: 40px;
 $tab-control-margin: 5px;
 
 $tab-rider-padding: 5px;
+$tab-rider-height: $tab-control-height - $tab-control-margin - 2 * $tab-rider-padding;
 
 $tab-counter: 3;
 
@@ -19,15 +20,22 @@ $tab-counter: 3;
         .tab-rider {
             display: inline-block;
             width: ($small-width - ($tab-counter + 1) * $tab-control-margin) / $tab-counter - 2 * $tab-rider-padding;
-            height: $tab-control-height - $tab-control-margin - 2 * $tab-rider-padding;
+            height: $tab-rider-height;
             margin-top: $tab-control-margin;
-            margin-left: $tab-control-margin;
+            &:not(:first-child) {
+                margin-left: $tab-control-margin;
+            }
+            &:not(:last-child) {
+                margin-right: $tab-control-margin;
+            }
             padding: $tab-rider-padding;
             background-color: #e8e8e8;
             opacity: 0.3;
             cursor: pointer;
             border-top-left-radius: $tab-control-margin;
             border-top-right-radius: $tab-control-margin;
+            text-align: center;
+            font-size: $tab-rider-height;
             &.tab-rider-active {
                 background-color: #d8d8d8;
                 opacity: 1.0;
@@ -39,9 +47,18 @@ $tab-counter: 3;
         min-height: 300px;
         padding: 10px;
         background-color: #d8d8d8;
-        border-radius: $tab-control-margin;
+        border-bottom-left-radius: $tab-control-margin;
+        border-bottom-right-radius: $tab-control-margin;
         &.tab-active {
             display: block;
+        }
+        ul.todos-list {
+            padding: 5px 0px 5px 0px;
+            li {
+                margin: 3px 0px 3px 0px;
+                background-color: #f0f0f0;
+                list-style: none;
+            }
         }
     }
 }
