@@ -7,18 +7,18 @@
         <div class="tab-control">
             {{#each tabs}}{{> tabRider}}{{/each}}
         </div>
-            {{#each tabs}}
-                {{> tabContainer}}
-            {{/each}}
+        {{#each tabs}}
+            {{> tabContainer}}
+        {{/each}}
     </div>
 </body>
 
 <template name="tabRider">
-    <span class="tab-rider tab-rider-{{#if opened}}selected{{/if}}">{{title}}</span>
+    <span class="tab-rider tab-rider{{#if isActive title}}-active{{/if}}">{{title}}</span>
 </template>
 
 <template name="tabContainer">
-    <div class="tab tab-{{#if opened}}opened{{else}}closed{{/if}}">
+    <div class="tab tab{{#if isActive title}}-active{{/if}}">
         List with {{title}} TODO's
     </div>
 </template>
