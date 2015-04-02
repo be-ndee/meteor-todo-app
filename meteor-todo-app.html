@@ -1,5 +1,6 @@
 <head>
     <title>TODO App</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 
 <template name="tabContainer">
     <div class="tab tab{{#if isActive title}}-active{{/if}}">
-        List with {{title}} TODO's
+        <h3>List with {{title}} TODO's</h3>
         <ul class="todos-list">
             {{#each getTodos title}}
                 {{> todo}}
