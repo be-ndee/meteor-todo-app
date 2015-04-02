@@ -10,6 +10,15 @@ $tab-rider-height: $tab-control-height - $tab-control-margin - 2 * $tab-rider-pa
 
 $tab-counter: 3;
 
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: rgba(92, 197, 124, 1);
+}
+
 .tab-container {
     width: $small-width;
     margin-left: auto;
@@ -29,40 +38,39 @@ $tab-counter: 3;
                 margin-right: $tab-control-margin;
             }
             padding: $tab-rider-padding;
-            background-color: #e8e8e8;
-            opacity: 0.3;
+            background-color: #d8d8d8;
             cursor: pointer;
             border-top-left-radius: $tab-control-margin;
             border-top-right-radius: $tab-control-margin;
             text-align: center;
-            font-size: $tab-rider-height;
+            font-size: $tab-rider-height - 4px;
             &.tab-rider-active {
-                background-color: #d8d8d8;
-                opacity: 1.0;
+                background-color: #e8e8e8;
             }
         }
     }
     .tab {
         display: none;
-        min-height: 300px;
         padding: 10px;
-        background-color: #d8d8d8;
+        background-color: #e8e8e8;
         border-bottom-left-radius: $tab-control-margin;
         border-bottom-right-radius: $tab-control-margin;
         &.tab-active {
             display: block;
         }
+        h3 {
+            margin: 5px 0px;
+        }
         ul.todos-list {
-            padding: 5px 0px 5px 0px;
+            padding: 0px 20px 0px 20px;
             li {
-                margin: 3px 0px 3px 0px;
-                background-color: #f0f0f0;
+                margin: 7px 0px 7px 0px;
                 list-style: none;
                 span.todo-item-control {
                     float: right;
                     cursor: pointer;
                     &:hover {
-                        color: #d8d8d8;
+                        color: #e8e8e8;
                     }
                     &.close-todo {
                     }
