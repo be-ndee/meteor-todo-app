@@ -6,8 +6,23 @@ A simple tutorial/example todo app with the JS framework Meteor
 
 run server
 
-```$ meteor run```
+```$ meteor```
 
 compile scss to css
 
 ```$ make watch```
+
+open shell for MongoDB
+
+```$ meteor mongo```
+
+## Icons
+
+Used from Font-Awesome
+
+- http://fontawesome.io/
+- https://github.com/FortAwesome/Font-Awesome
+
+## License
+
+[MIT-License](LICENSE)
