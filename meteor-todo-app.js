@@ -69,4 +69,66 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
     Meteor.startup(function () {
     });
+
+    HTTP.methods({
+        '/todo/:todoId': function() {
+            // define return data
+            var returnData = {
+                success: true
+            };
+            var falseId = 'Todo-Object with given ID does not exist.';
+            // fetch method
+            var method = this.method;
+            // fetch todo by id
+            var id = this.params.todoId;
+            var todo = Todos.findOne(id);
+
+            switch (method) {
+                case 'GET':
+                    // fetch and return one todo
+                    if (todo) {
+                        returnData['todo'] = todo;
+                    } else {
+                        returnData['success'] = false;
+                        returnData['message'] = falseId;
+                    }
+                    break;
+                case 'POST':
+                    // update todo
+                    if (todo) {
+                        var data = {};
+                        if (this.query.text) {
+                            data['text'] = this.query.text;
+                        }
+                        if (this.query.status) {
+                            data['status'] = this.query.status
+                        }
+                        if (Object.keys(data).length > 0) {
+                            Todos.update(todo._id, { $set: data });
+                        }
+                    } else {
+                        returnData['success'] = false;
+                        returnData['message'] = falseId;
+                    }
+                    break;
+                case 'PUT':
+                    // insert todo
+                    Todos.insert({
+                        text: this.query.text,
+                        status: this.query.status
+                    });
+                    break;
+                case 'DELETE':
+                    // delete todo
+                    if (todo) {
+                        Todos.remove(todo._id);
+                    } else {
+                        returnData['success'] = false;
+                        returnData['message'] = falseId;
+                    }
+                    break;
+            }
+            return JSON.stringify(returnData);
+        }
+    });
 }
