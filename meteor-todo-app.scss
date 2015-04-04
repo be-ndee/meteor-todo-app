@@ -64,18 +64,31 @@ html, body {
         ul.todos-list {
             padding: 0px 20px 0px 20px;
             li {
+                height: 26px;
                 margin: 7px 0px 7px 0px;
                 list-style: none;
-                span.todo-item-control {
+                i.todo-item-control {
+                    margin-right: 3px;
                     float: right;
                     cursor: pointer;
                     &:hover {
-                        color: #e8e8e8;
+                        color: #999999;
                     }
-                    &.close-todo {
-                    }
-                    &.do-todo {
-                    }
+                }
+            }
+        }
+        form.create-todo {
+            display: block;
+            input[name=text] {
+                width: 100%;
+                height: 26px;
+                box-sizing: border-box;
+                border: none;
+                padding: 2px;
+                font-size: 18px;
+                border-radius: $tab-control-margin;
+                &:focus {
+                    outline-width: 0;
                 }
             }
         }

@@ -1,6 +1,7 @@
 <head>
     <title>TODO App</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="/components/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -11,7 +12,6 @@
         {{#each tabs}}
             {{> tabContainer}}
         {{/each}}
-        {{> createTodo}}
     </div>
 </body>
 
@@ -21,27 +21,27 @@
 
 <template name="tabContainer">
     <div class="tab tab{{#if isActive title}}-active{{/if}}">
-        <h3>List with {{title}} TODO's</h3>
         <ul class="todos-list">
             {{#each getTodos title}}
                 {{> todo}}
             {{else}}
-                <li>No todos ...</li>
+                <li>Empty ...</li>
             {{/each}}
         </ul>
+        {{> createTodo}}
     </div>
 </template>
 
 <template name="todo">
     <li>{{text}}
         {{#if isOpen}}
-            <span class="todo-item-control close-todo">C</span>
-            <span class="todo-item-control do-todo">D</span>
+            <i class="todo-item-control close-todo fa fa-times fa-lg"></i>
+            <i class="todo-item-control do-todo fa fa-check fa-lg"></i>
         {{/if}}</li>
 </template>
 
 <template name="createTodo">
-    <form>
+    <form class="create-todo">
         <input type="text" name="text" placeholder="Create new todo" />
     </form>
 </template>
