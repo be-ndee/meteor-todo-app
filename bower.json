@@ -1,0 +1,15 @@
+{
+  "name": "meteor-todo-app",
+  "main": "meteor-todo-app.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/be-ndee/meteor-todo-app",
+  "authors": [
+    "Andreas Bissinger <mail@bissinger-andreas.de>"
+  ],
+  "description": "A simple tutorial/example todo app with the JS framework Meteor",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "fontawesome": "~4.3.0"
+  }
+}
