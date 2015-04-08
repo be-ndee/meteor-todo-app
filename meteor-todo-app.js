@@ -68,7 +68,9 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
-        collectionApi = new CollectionAPI({});
+        collectionApi = new CollectionAPI({
+            authToken: '02nv75gvsl7h85s7c523t9b7dgh28x'
+        });
         collectionApi.addCollection(Todos, 'todos');
         collectionApi.start();
     });
