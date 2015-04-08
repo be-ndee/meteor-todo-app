@@ -71,7 +71,7 @@ if (Meteor.isServer) {
     });
 
     HTTP.methods({
-        '/todo/:todoId': function() {
+        '/api/todos/:todoId': function() {
             // define return data
             var returnData = {
                 success: true
