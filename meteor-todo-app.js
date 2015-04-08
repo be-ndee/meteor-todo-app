@@ -68,5 +68,8 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
+        collectionApi = new CollectionAPI({});
+        collectionApi.addCollection(Todos, 'todos');
+        collectionApi.start();
     });
 }
